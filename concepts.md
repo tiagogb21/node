@@ -16,7 +16,7 @@
 
 ## Diferenciar Módulos Internos e de Terceiros
 
-Prefixe módulos internos com 'node:':
+    - Prefixe módulos internos com 'node:':
 
     ```js
     import http from 'node:http'; // módulo interno
