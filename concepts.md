@@ -37,10 +37,18 @@ Digite node: e pressione CTRL + Espaço para visualizar a lista.
     - Utilizado principalmente em métodos POST e PUT.
     - Necessário usar middleware como body-parser ou express.json() para parsear o conteúdo.
 
+    ```js
+    const { name, email } = req.body;
+    ```
+
 2. req.params
 
     - Contém os parâmetros de rota capturados pela URL.
     - Utilizado em rotas dinâmicas.
+
+    ```js
+    const { id } = req.params;
+    ```
 
 3. req.query
 
@@ -49,6 +57,42 @@ Digite node: e pressione CTRL + Espaço para visualizar a lista.
 
     ```js
     req.query.term // Acessa o parâmetro de consulta 'term'
+    ```
+
+4. req.headers
+
+    - Contém os cabeçalhos da requisição.
+    - Utilizado para acessar informações como tipo de conteúdo, autenticação, etc.
+
+    ```js
+    req.headers['user-agent'] // Acessa o cabeçalho User-Agent
+    ```
+
+5 - req.cookies
+
+    - Contém os cookies enviados pelo cliente.
+    - Necessário usar middleware como cookie-parser para parsear os cookies.
+
+    ```js
+    req.cookies; // Acessa os cookies enviados na requisição
+    ```
+
+6 - req.method
+
+    - Contém o método HTTP da requisição.
+    - Utilizado para determinar se a requisição é GET, POST, etc.
+
+    ```js
+    req.method; // Acessa o método HTTP da requisição
+    ```
+
+7 - req.url
+
+    - Contém a URL da requisição.
+    - Utilizado para obter a URL completa ou partes dela.
+
+    ```js
+    req.url; // Acessa a URL da requisição
     ```
 
 ### Objeto res
@@ -91,3 +135,51 @@ Digite node: e pressione CTRL + Espaço para visualizar a lista.
     ```js
     res.render('index', { title: 'Home' });
     ```
+
+6. res.set()
+
+    - Define um ou mais cabeçalhos HTTP na resposta.
+
+    ```js
+    res.set('Content-Type', 'application/json');
+    ```
+
+7. req.cookie()
+
+    - Define um cookie na resposta.
+
+    ```js
+    res.cookie('name', 'value', { httpOnly: true });
+    ```
+
+8. res.clearCookie()
+
+    - Remove um cookie da resposta.
+
+    ```js
+    res.clearCookie('name');
+    ```
+
+9. res.type()
+
+    - Define o Content-Type da resposta.
+
+    ```js
+    res.type('json').send({ message: 'Hello World!' });
+    ```
+
+10. res.end()
+
+    - Encerra o processo de resposta.
+    - Utilizado para finalizar a resposta sem enviar dados adicionais.
+
+    ```js
+    res.end();
+    ```
+
+## requisição http
+
+--> 2 principais recursos:
+
+1 - Método HTTP
+2 - URL
